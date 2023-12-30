@@ -2,7 +2,7 @@
 
 echo "=================== 脚本启动 ==================="
 
-if [ $1 = install ]; then
+if [ $1 = "install" ]; then
     echo "您已经执行安装脚本！"
     echo "本脚本仅支持 Linux 系统和 macOS 系统，且需要 git 命令。"
     read -p "确定运行此脚本吗(y/n): " condition
@@ -49,7 +49,8 @@ if [ $1 = install ]; then
         echo "安装中止!"
     fi
 
-elif [ $1 = uninstall ]; then
+elif [ $1 = "uninstall" ]; then
+	echo "您正在执行卸载脚本!"
     read -p "您确定写在 neovim 配置(y/n): " condition 
     if [ condition = y ] || [ condition = Y ]; then
         sudo rm -r ~/.config/nvim/
@@ -58,7 +59,8 @@ elif [ $1 = uninstall ]; then
         echo "卸载中止!"
     fi
 
-elif [ $1 = update ]; then
+elif [ $1 = "update" ]; then
+	echo "您正在执行更新脚本!"
     cd ~/.config/nvim/
     git push
 fi
