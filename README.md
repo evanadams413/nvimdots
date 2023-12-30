@@ -1,5 +1,7 @@
 # (Neo)vim 配置
 
+![](https://raw.githubusercontent.com/evanadams413/PicBed/master/img/Snipaste_2023-12-30_22-43-03.png)
+
 ## 要求
 
 本配置依赖如下环境:
