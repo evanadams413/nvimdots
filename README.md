@@ -1,6 +1,6 @@
 # (Neo)vim 配置
 
-![](https://raw.githubusercontent.com/evanadams413/PicBed/master/img/Snipaste_2023-12-30_22-43-03.png)
+![](https://raw.githubusercontent.com/evanadams413/PicBed/master/img/20231230230859.png)
 
 ## 要求
 
