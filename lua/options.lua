@@ -1,3 +1,11 @@
+--              _   _                   _
+--   ___  _ __ | |_(_) ___  _ __  ___  | |_   _  __ _
+--  / _ \| '_ \| __| |/ _ \| '_ \/ __| | | | | |/ _` |
+-- | (_) | |_) | |_| | (_) | | | \__ \_| | |_| | (_| |
+--  \___/| .__/ \__|_|\___/|_| |_|___(_)_|\__,_|\__,_|
+--       |_|
+
+
 -- utf8
 vim.g.encoding = "UTF-8"
 vim.o.fileencoding = 'utf-8'
@@ -78,6 +86,12 @@ vim.o.pumheight = 10
 vim.o.showtabline = 2
 -- 使用增强状态栏插件后不再需要 vim 的模式提示
 vim.o.showmode = true
+-- 持续 Undo
+vim.o.undofile = true
+vim.opt.undodir = vim.fn.expand('~/.config/nvim/undodir')
+vim.o.undolevels = 1000
+vim.o.undoreload = 10000
+
 
 -- disable netrw at the very start of your init.lua
 vim.g.loaded_netrw = 1

@@ -65,12 +65,7 @@ return {
                 },
                 lualine_c = {
                     'filename',
-                    require('lsp-progress').progress,
-                    {
-                        -- "navic",
-                        -- color_correction = "dynamic",
-                        -- navic_opts = nil
-                    }
+                    -- require('lsp-progress').progress,
                 },
                 lualine_x = { 'encoding', 'fileformat', 'filetype' },
                 lualine_y = { 'progress' },

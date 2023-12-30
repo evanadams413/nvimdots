@@ -79,8 +79,6 @@ map("v", ">", ">gv", opt)
 map("v", "J", ":move '>+1<CR>gv-gv", opt)
 map("v", "K", ":move '<-2<CR>gv-gv", opt)
 
-map("v", "c", '""c', opt)
-
 -- ======================================
 -- =============== COMMAND ==============
 -- ======================================
@@ -98,7 +96,7 @@ map('n', '<leader>yy', '<cmd>lua require(\'SCRIPT.md\').markdownCopyPlus()<CR>',
 
 
 
--- _  __                                    ____  _             _
+--  _  __                                    ____  _             _
 -- | |/ /___ _   _ _ __ ___   __ _ _ __  ___|  _ \| |_   _  __ _(_)_ __
 -- | ' // _ \ | | | '_ ` _ \ / _` | '_ \/ __| |_) | | | | |/ _` | | '_ \
 -- | . \  __/ |_| | | | | | | (_| | |_) \__ \  __/| | |_| | (_| | | | | |
@@ -121,21 +119,28 @@ map("n", "<leader>fo", ":Telescope oldfiles<CR>", opt)
 map("n", "<leader>fb", [[<cmd>lua require('telescope.builtin').buffers()<cr>]], opt)
 
 -- bufferline
-map("n", "bp", ":BufferLineCyclePrev<CR>", opt)
-map("n", "bn", ":BufferLineCycleNext<CR>", opt)
+map("n", "bk", ":BufferLineCyclePrev<CR>", opt)
+map("n", "bj", ":BufferLineCycleNext<CR>", opt)
+map("n", "bc", ":BufferLinePickClose<CR>", opt)
+map("n", "bch", ":BufferLineCloseLeft<CR>", opt)
+map("n", "bcl", ":BufferLineCloseRight<CR>", opt)
+map("n", "bco", ":BufferLinePickCloseOther<CR>", opt)
+map("n", "bmj", ":BufferLinePickMovePrev<CR>", opt)
+map("n", "bmk", ":BufferLinePickMoveNext<CR>", opt)
 
---"moll/vim-bbye"
 map("n", "<C-w>", ":Bdelete!<CR>", opt)
-map("n", "<leader>bl", ":BufferLineCloseRight<CR>", opt)
-map("n", "<leader>bh", ":BufferLineCloseLeft<CR>", opt)
-map("n", "<leader>bc", ":BufferLinePickClose<CR>", opt)
 
 -- choosewin
 map("n", "-", "<Plug>(choosewin)", opt)
 
---
+-- repeat
 map("n", "'", "<Plug>(clever-f-repeat-forward)", opt)
 map("n", "\"", "<Plug>(clever-f-repeat-back)", opt)
+map("v", "'", "<Plug>(clever-f-repeat-forward)", opt)
+map("v", "\"", "<Plug>(clever-f-repeat-back)", opt)
+
+map("n", "1", "%", opt)
+map("v", "1", "%", opt)
 
 -- ===============================================
 -- ================ PluginConfig =================

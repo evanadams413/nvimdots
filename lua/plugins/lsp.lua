@@ -70,5 +70,8 @@ return {
         config = function()
             require("plugins.lsp.nvim-navbuddy")
         end
+    },
+    {
+        "simrat39/rust-tools.nvim"
     }
 }

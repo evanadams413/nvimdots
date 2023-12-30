@@ -12,13 +12,19 @@ return {
             "rafamadriz/friendly-snippets",
         },
         config = function()
+            if opts then require("luasnip").config.setup(opts) end
+            vim.tbl_map(
+                function(type) require("luasnip.loaders.from_" .. type).lazy_load() end,
+                { "vscode", "snipmate", "lua" }
+            )
+
             local cmp = require("cmp")
 
             local luasnip = require("luasnip")
 
             local lspkind = require("lspkind")
 
-            require("luasnip.loaders.from_vscode").lazy_load() -- load freindly-snippets
+            require("luasnip.loaders.from_vscode").lazy_load() -- load friendly-snippets
             require("luasnip.loaders.from_vscode").load({
                 paths = {                                      -- load custom snippets
                     vim.fn.stdpath("config") .. "/snippets"
@@ -27,7 +33,7 @@ return {
 
             cmp.setup({
                 completion = {
-                    completeopt = "menu,menuone,preview,noselect",
+                    completeopt = "menu,menuone,preview, noselect",
                 },
                 snippet = { -- configure how nvim-cmp interacts with snippet engine
                     expand = function(args)
@@ -64,8 +70,8 @@ return {
                 }),
                 -- sources for autocompletion
                 sources = cmp.config.sources({
-                    { name = "nvim_lsp" },
                     { name = "luasnip" }, -- snippets
+                    { name = "nvim_lsp" },
                     -- { name = 'vsnip' }, -- For vsnip users.
                     -- { name = 'ultisnips' }, -- For ultisnips users.
                     -- { name = 'snippy' }, -- For snippy users.
@@ -79,6 +85,9 @@ return {
                         ellipsis_char = "...",
                     }),
                 },
+                experimental = {
+                    ghost_text = true,
+                },
             })
 
             local M = {}
@@ -87,7 +96,6 @@ return {
                 format = lspkind.cmp_format({
                     mode = "symbol_text",
                     --mode = 'symbol', -- show only symbol annotations
-
                     maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
                     -- The function below will be called before any actual modifications from lspkind
                     -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))

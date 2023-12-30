@@ -9,12 +9,27 @@ local on_attach = function(client, bufnr)
     if client.server_capabilities.documentSymbolProvider then
         navic.attach(client, bufnr)
     end
+
+    if client.supports_method("textDocument/formatting") then
+        vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            group = augroup,
+            buffer = bufnr,
+            callback = function()
+                vim.lsp.buf.format({ async = true })
+            end,
+        })
+    end
+
     navbuddy.attach(client, bufnr)
 end
 
 lspconfig.lua_ls.setup({})
 lspconfig.jsonls.setup({})
 lspconfig.clangd.setup({
+    on_attach = on_attach,
+})
+lspconfig.rust_analyzer.setup({
     on_attach = on_attach,
 })
 
@@ -42,13 +57,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
         -- vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
         vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts)
         -- vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
-        vim.keymap.set({ 'n', 'v'}, "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts)
+        vim.keymap.set({ 'n', 'v' }, "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts)
         -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
         vim.keymap.set("n", "gr", "<cmd>Lspsaga lsp_finder<CR>", opts)
         vim.keymap.set('n', '<C-f>', function()
             vim.lsp.buf.format { async = true }
         end, opts)
-          -- diagnostic
+        -- diagnostic
         vim.keymap.set("n", "gp", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
         vim.keymap.set("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<cr>", opts)
         vim.keymap.set("n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opts)
