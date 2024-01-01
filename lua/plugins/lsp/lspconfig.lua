@@ -4,7 +4,7 @@ if not status then
     return
 end
 
-local navbuddy = require("nvim-navbuddy")
+-- local navbuddy = require("nvim-navbuddy")
 local on_attach = function(client, bufnr)
     if client.server_capabilities.documentSymbolProvider then
         navic.attach(client, bufnr)
@@ -21,7 +21,7 @@ local on_attach = function(client, bufnr)
         })
     end
 
-    navbuddy.attach(client, bufnr)
+    -- navbuddy.attach(client, bufnr)
 end
 
 lspconfig.lua_ls.setup({})
@@ -32,6 +32,10 @@ lspconfig.clangd.setup({
 lspconfig.rust_analyzer.setup({
     on_attach = on_attach,
 })
+require 'lspconfig'.marksman.setup({
+    on_attach = on_attach,
+})
+require 'lspconfig'.bashls.setup {}
 
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('UserLspConfig', {}),

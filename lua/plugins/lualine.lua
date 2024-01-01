@@ -30,6 +30,15 @@ return {
             ['CONFIRM'] = 'Y?',
             ['MORE'] = 'M',
         }
+        local progress = function()
+            local current_line = vim.fn.line(".")
+            local total_lines = vim.fn.line("$")
+            local chars = { " ", " ", " ", " ", " " }
+            -- local chars = { "██", "▇▇", "▆▆", "▅▅", "▄▄", "▃▃", "▂▂", "▁▁", " ", }
+            local line_ratio = current_line / total_lines
+            local index = math.ceil(line_ratio * #chars)
+            return chars[index]
+        end
 
         lualine.setup({
             options = {
@@ -48,12 +57,13 @@ return {
                     statusline = 1000,
                     tabline = 1000,
                     winbar = 1000,
-                }
+                },
+                disabled_filetypes = { 'packer', 'neo-tree', 'Outline' }
             },
             sections = {
                 lualine_a = { { 'mode',
-                    -- fmt = function(s) return mode_map[s] or s end 
-                }},
+                    -- fmt = function(s) return mode_map[s] or s end
+                } },
                 lualine_b = {
                     'branch',
                     'diff',
@@ -65,10 +75,10 @@ return {
                 },
                 lualine_c = {
                     'filename',
-                    -- require('lsp-progress').progress,
+                    require('lsp-progress').progress,
                 },
                 lualine_x = { 'encoding', 'fileformat', 'filetype' },
-                lualine_y = { 'progress' },
+                lualine_y = { progress },
                 lualine_z = { 'location' }
             },
             inactive_sections = {

@@ -16,6 +16,12 @@ return {
                         text_align = "left",
                         separator = true,
                     },
+                    {
+                        filetype = "Outline",
+                        text = "Symbols Outline",
+                        text_align = "left",
+                        separator = true,
+                    }
                 }
             }
         })

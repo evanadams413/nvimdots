@@ -31,14 +31,6 @@ return {
                 vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" })
             end)
 
-            vim.g.rainbow_delimiters = { highlight = highlight }
-            ibl.setup({
-                indent = { char = "▏" },
-                scope = { highlight = highlight }
-            })
-
-            hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
-
             vim.g.indent_blankline_buftype_exclude = { "terminal", "nofile" }
             vim.g.indent_blankline_filetype_exclude = {
                 "help",
@@ -46,9 +38,19 @@ return {
                 "dashboard",
                 "packer",
                 "neogitstatus",
-                "NvimTree",
+                "neo-tree",
+                "Outline",
                 "Trouble",
             }
+            vim.g.indentLine_enabled = 1
+            
+            vim.g.rainbow_delimiters = { highlight = highlight }
+            ibl.setup({
+                indent = { char = "▏" },
+                scope = { highlight = highlight }
+            })
+
+            hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
         end
     }
 }

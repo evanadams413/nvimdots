@@ -16,6 +16,8 @@ local opt = { noremap = true, silent = true }
 -- Cursor move
 map("n", "H", "^", opt)
 map("n", "L", "$", opt)
+map("n", "J", "5j", opt)
+map("n", "K", "5k", opt)
 
 -- Split window
 map("n", "s", "", opt)
@@ -41,22 +43,10 @@ map("n", "mT", ":tabmove -1<CR>", opt)
 map("n", "tc", ":tabclose<CR>", opt)
 map("n", "to", ":tabonly<CR>", opt)
 
--- Copy & Paste
-map("n", "ck", "ci(", opt)
-map("n", "cd", "ca{", opt)
-map("n", "cz", "ci[", opt)
-map("n", "cs", 'ci"', opt)
-map("n", "<C-a>", "ggVG", opt)
--- map("v", "<C-c>", "\"+y", opt)
-
--- Find
-map("n", "fs", "f\"", opt)
-map("n", "fk", "f(", opt)
-map("n", "fK", "f)", opt)
-
 -- Other
 map("n", ";", ":", opt)
 map("n", "U", "<C-r>", opt)
+map("n", "<C-a>", "ggVG", opt)
 
 -- ======================================
 -- =============== INSERT ===============
@@ -110,6 +100,7 @@ map('n', '<leader>yy', '<cmd>lua require(\'SCRIPT.md\').markdownCopyPlus()<CR>',
 -- neo-tree
 map('n', '<leader>e', ':Neotree toggle<CR>', opt)
 map('n', '<leader>b', ':Neotree buffers reveal float<CR>', opt)
+map('n', '<leader>o', ":SymbolsOutline<CR>", opt)
 
 -- telescope
 map("n", "<leader>ff", ":Telescope find_files<CR>", opt)
@@ -119,12 +110,12 @@ map("n", "<leader>fo", ":Telescope oldfiles<CR>", opt)
 map("n", "<leader>fb", [[<cmd>lua require('telescope.builtin').buffers()<cr>]], opt)
 
 -- bufferline
-map("n", "bk", ":BufferLineCyclePrev<CR>", opt)
-map("n", "bj", ":BufferLineCycleNext<CR>", opt)
+map("n", "bT", ":BufferLineCyclePrev<CR>", opt)
+map("n", "bt", ":BufferLineCycleNext<CR>", opt)
 map("n", "bc", ":BufferLinePickClose<CR>", opt)
-map("n", "bch", ":BufferLineCloseLeft<CR>", opt)
-map("n", "bcl", ":BufferLineCloseRight<CR>", opt)
-map("n", "bco", ":BufferLinePickCloseOther<CR>", opt)
+map("n", "bk", ":BufferLineCloseLeft<CR>", opt)
+map("n", "bj", ":BufferLineCloseRight<CR>", opt)
+map("n", "bo", ":BufferLinePickCloseOther<CR>", opt)
 map("n", "bmj", ":BufferLinePickMovePrev<CR>", opt)
 map("n", "bmk", ":BufferLinePickMoveNext<CR>", opt)
 

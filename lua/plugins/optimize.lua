@@ -131,13 +131,19 @@ return {
         opts = {},
         -- stylua: ignore
         keys = {
-            { "<leader>s",     mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
-            { "<leader>d",     mode = { "n", "x", "o" }, function() require("flash").treesitter() end,        desc = "Flash Treesitter" },
-            { "r",     mode = "o",               function() require("flash").remote() end,            desc = "Remote Flash" },
-            { "R",     mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+            { "<leader>s", mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
+            { "<leader>d", mode = { "n", "x", "o" }, function() require("flash").treesitter() end,        desc = "Flash Treesitter" },
+            { "r",         mode = "o",               function() require("flash").remote() end,            desc = "Remote Flash" },
+            { "R",         mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
         },
     },
     {
         'tribela/vim-transparent',
-    }
+    },
+    {
+        'mg979/vim-visual-multi',
+        config = function ()
+
+        end
+    } 
 }

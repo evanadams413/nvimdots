@@ -61,16 +61,16 @@ return {
             require("plugins.lsp.barbecue")
         end,
     },
-    {
-        "SmiteshP/nvim-navbuddy",
-        dependencies = {
-            "SmiteshP/nvim-navic",
-            "MunifTanjim/nui.nvim"
-        },
-        config = function()
-            require("plugins.lsp.nvim-navbuddy")
-        end
-    },
+    -- {
+    --     "SmiteshP/nvim-navbuddy",
+    --     dependencies = {
+    --         "SmiteshP/nvim-navic",
+    --         "MunifTanjim/nui.nvim"
+    --     },
+    --     config = function()
+    --         require("plugins.lsp.nvim-navbuddy")
+    --     end
+    -- },
     {
         "simrat39/rust-tools.nvim"
     }
