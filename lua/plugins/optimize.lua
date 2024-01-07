@@ -110,7 +110,7 @@ return {
         "max397574/better-escape.nvim",
         config = function()
             require("better_escape").setup {
-                mapping = { "jk", "jj" },   -- a table with mappings to use
+                mapping = { "jk" },         -- a table with mappings to use
                 timeout = vim.o.timeoutlen, -- the time in which the keys must be hit in ms. Use option timeoutlen by default
                 clear_empty_lines = false,  -- clear line after escaping if there is only whitespace
                 keys = "<Esc>",             -- keys used for escaping, if it is a function will use the result everytime
@@ -138,12 +138,29 @@ return {
         },
     },
     {
-        'tribela/vim-transparent',
+        -- 'tribela/vim-transparent',
     },
     {
         'mg979/vim-visual-multi',
-        config = function ()
+        config = function()
 
         end
-    } 
+    },
+    {
+        {
+            "JuanZoran/Trans.nvim",
+            build = function() require 'Trans'.install() end,
+            keys = {
+                -- 可以换成其他你想映射的键
+                { 'mm', mode = { 'n', 'x' }, '<Cmd>Translate<CR>', desc = ' Translate' },
+                { 'mk', mode = { 'n', 'x' }, '<Cmd>TransPlay<CR>', desc = ' Auto Play' },
+                -- 目前这个功能的视窗还没有做好，可以在配置里将view.i改成hover
+                { 'mi', '<Cmd>TranslateInput<CR>', desc = ' Translate From Input' },
+            },
+            dependencies = { 'kkharji/sqlite.lua', },
+            opts = {
+                -- your configuration there
+            }
+        }
+    }
 }

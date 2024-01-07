@@ -17,7 +17,7 @@ local opt = { noremap = true, silent = true }
 map("n", "H", "^", opt)
 map("n", "L", "$", opt)
 map("n", "J", "5j", opt)
-map("n", "K", "5k", opt)
+-- map("n", "K", "5k", opt)
 
 -- Split window
 map("n", "s", "", opt)
@@ -53,6 +53,7 @@ map("n", "<C-a>", "ggVG", opt)
 -- ======================================
 
 -- map("i", "jk", "<ESC>", opt)
+-- map("i", "jj", "<ESC>o", opt)
 
 -- ======================================
 -- =============== VISUAL ===============

@@ -37,7 +37,9 @@ return {
     },
     {
         "nvim-treesitter/nvim-treesitter",
-        dependencies = { "nvim-treesitter/nvim-treesitter-context" },
+        dependencies = {
+            -- "nvim-treesitter/nvim-treesitter-context",
+        },
         run = ":TSUpdate",
         config = function()
             require("plugins.lsp.nvim-treesitter")
@@ -73,5 +75,23 @@ return {
     -- },
     {
         "simrat39/rust-tools.nvim"
+    },
+    {
+        'liuchengxu/vista.vim',
+        config = function()
+            vim.cmd([[
+                let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
+                let g:vista_default_executive = 'ctags'
+                let g:vista_executive_for = {
+                  \ 'cpp': 'vim_lsp',
+                  \ 'php': 'vim_lsp',
+                  \ }
+                let g:vista_ctags_cmd = {
+                      \ 'haskell': 'hasktags -x -o - -c',
+                      \ }
+                let g:vista_fzf_preview = ['right:50%']
+                let g:vista#renderer#enable_icon = 1
+            ]])
+        end
     }
 }

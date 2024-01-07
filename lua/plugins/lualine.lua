@@ -58,7 +58,7 @@ return {
                     tabline = 1000,
                     winbar = 1000,
                 },
-                disabled_filetypes = { 'packer', 'neo-tree', 'Outline' }
+                disabled_filetypes = { 'packer', 'neo-tree', 'Outline', 'vista' }
             },
             sections = {
                 lualine_a = { { 'mode',

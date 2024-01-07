@@ -12,6 +12,14 @@
             {
                 "language": "c",
                 "path": "./c.json"
+            },
+            {
+                "language": "cpp",
+                "path": "./cpp.json"
+            },
+            {
+                "language": "cc",
+                "path": "./cpp.json"
             }
         ]
     }

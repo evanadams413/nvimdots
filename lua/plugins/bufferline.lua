@@ -21,6 +21,12 @@ return {
                         text = "Symbols Outline",
                         text_align = "left",
                         separator = true,
+                    },
+                    {
+                        filetype = "vista",
+                        text = "Symbols Outline",
+                        text_align = "left",
+                        separator = true,
                     }
                 }
             }
